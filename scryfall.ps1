@@ -122,11 +122,12 @@ function Convert-MtgCardToString
 function Show-Image
 {
     Param([Parameter(Mandatory=$true, Position=0)][string]$image)
-    
+ 
     [void][Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
     $img = [System.Drawing.Image]::FromFile($image)
 
+    # http://occasionalutility.blogspot.com/2013/11/everyday-powershell-part-8-powershell.html
     $form = new-object Windows.Forms.Form
     $form.Text = $image
     $form.Width = $img.Size.Width;
